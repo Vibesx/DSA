@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class BinarySearchTree {
     Node root;
@@ -234,5 +235,35 @@ public class BinarySearchTree {
 
         new Traverse(root);
         return results;
+    }
+
+    public boolean isValidBST() {
+        ArrayList<Integer> bstInOrder = DFSInOrder();
+
+        for (int i = 1; i < bstInOrder.size(); i++) {
+            if (bstInOrder.get(i - 1) > bstInOrder.get(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Integer kthSmallest(int k) {
+        Stack<Node> stack = new Stack<>();
+        Node node = this.root;
+
+        while (!stack.isEmpty() || node != null) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            k -= 1;
+            if (k == 0) {
+                return node.value;
+            }
+            node = node.right;
+        }
+        return null;
     }
 }
