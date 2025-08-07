@@ -5,9 +5,11 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {5, 2, 3, 1, 7, 6, 0, 9};
+        int[] array = {5, 2, 3, 1, 7, 6, 0, 9, 4, 8};
+        System.out.println("BEFORE SORT");
         System.out.println(Arrays.toString(array));
-        Sorts.bubbleSort(array);
+        Sorts.selectionSort(array);
+        System.out.println("AFTER SORT");
         System.out.println(Arrays.toString(array));
     }
 
