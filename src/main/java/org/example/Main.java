@@ -5,36 +5,51 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        // Test case 1
-        int[] nums1 = {7, 10, 4, 3, 20, 15};
-        int k1 = 3;
-        System.out.println("Test case 1:");
-        System.out.println("Expected output: 7");
-        System.out.println("Actual output: " + findKthSmallest(nums1, k1));
-        System.out.println();
+        BinarySearchTree bst = new BinarySearchTree();
+        int size = 9;
+        int[] input = new int[size];
+        for (int i = 0; i < size; i++) {
+            input[i] = i + 1;
+        }
+        bst.sortedArrayToBST(input);
 
-        // Test case 2
-        int[] nums2 = {2, 1, 3, 5, 6, 4};
-        int k2 = 2;
-        System.out.println("Test case 2:");
-        System.out.println("Expected output: 2");
-        System.out.println("Actual output: " + findKthSmallest(nums2, k2));
-        System.out.println();
-
-        // Test case 3
-        int[] nums3 = {9, 3, 2, 11, 7, 10, 4, 5};
-        int k3 = 5;
-        System.out.println("Test case 3:");
-        System.out.println("Expected output: 7");
-        System.out.println("Actual output: " + findKthSmallest(nums3, k3));
-        System.out.println();
+        System.out.println(bst);
     }
 
 
     // HEAPS
 
-    public static int findKthSmallest(int[] nums, int k) {
+    public static List<Integer> streamMax(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+        Heap heap = new Heap();
+        for (int i : nums) {
+            heap.insert(i);
+            result.add(heap.getHeap().get(0));
+        }
+        return result;
+    }
 
+    public static int findKthSmallest(int[] nums, int k) {
+        Heap heap = new Heap();
+        for (int i : nums) {
+            heap.insert(i);
+        }
+        for (int i = 0; i < nums.length - k; i++) {
+            heap.remove();
+        }
+        return heap.getHeap().get(0);
+
+        // from course:
+//        Heap maxHeap = new Heap();
+//
+//        for (int num : nums) {
+//            maxHeap.insert(num);
+//            if (maxHeap.getHeap().size() > k) {
+//                maxHeap.remove();
+//            }
+//        }
+//
+//        return maxHeap.remove();
     }
 
     // STACKS
