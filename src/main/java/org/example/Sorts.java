@@ -14,9 +14,8 @@ public class Sorts {
     }
 
     public static void selectionSort(int[] array) {
-        int minIndex;
         for (int i = 0; i < array.length; i++) {
-            minIndex = i;
+            int minIndex = i;
             for (int j = i + 1; j < array.length; j++) {
                 if (array[j] < array[minIndex]) {
                     minIndex = j;
@@ -26,6 +25,18 @@ public class Sorts {
                 int temp = array[i];
                 array[i] = array[minIndex];
                 array[minIndex] = temp;
+            }
+        }
+    }
+
+    public static void insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int temp = array[i];
+            int tempIndex = i - 1;
+            while(tempIndex >= 0 && temp < array[tempIndex]) {
+                array[tempIndex + 1] = array[tempIndex];
+                array[tempIndex] = temp;
+                tempIndex--;
             }
         }
     }

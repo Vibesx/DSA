@@ -338,10 +338,10 @@ public class LinkedList {
     }
 
     public void reverseBetween(int m, int n) {
-        if(length < 2 || m == n) {
+        if (length < 2 || m == n) {
             return;
         }
-        if(length == 2) {
+        if (length == 2) {
             Node temp = this.head;
             this.head = this.head.next;
             temp.next = null;
@@ -360,7 +360,7 @@ public class LinkedList {
             secondRunner = secondRunner.next;
         }
         // we get the firstAfterInterval node
-        if(n < length) {
+        if (n < length) {
             for (int i = 0; i <= n; i++) {
                 if (firstAfterInterval == null) {
                     firstAfterInterval = this.head;
@@ -388,7 +388,7 @@ public class LinkedList {
     }
 
     public void swapPairs() {
-        if(this.head == null ||  this.head.next == null) {
+        if (this.head == null || this.head.next == null) {
             return;
         }
         Node dummy = new Node(0);
@@ -405,6 +405,74 @@ public class LinkedList {
             first = first.next;
             second = first == null ? null : first.next;
         }
+    }
+
+    public void bubbleSort() {
+        if (length < 2) return;
+        Node sortedUntil = null;
+        while (sortedUntil != this.head.next) {
+            Node current = this.head;
+            while (current.next != sortedUntil) {
+                if (current.value > current.next.value) {
+                    int temp = current.value;
+                    current.value = current.next.value;
+                    current.next.value = temp;
+                }
+                current = current.next;
+            }
+            sortedUntil = current;
+        }
+    }
+
+    public void selectionSort() {
+        if (length < 2) return;
+        Node sortedFrom = this.head;
+        while (sortedFrom.next != null) {
+            Node minNode = sortedFrom;
+            Node current = sortedFrom.next;
+            while (current != null) {
+                if (current.value < minNode.value) {
+                    minNode = current;
+                }
+                current = current.next;
+            }
+            if (minNode != sortedFrom) {
+                int temp = sortedFrom.value;
+                sortedFrom.value = minNode.value;
+                minNode.value = temp;
+            }
+            sortedFrom = sortedFrom.next;
+        }
+    }
+
+    //TODO recap
+    public void insertionSort() {
+        if (length < 2) return;
+        Node sortedListHead = this.head;
+        Node unsortedListHead = this.head.next;
+        sortedListHead.next = null;
+        while (unsortedListHead != null) {
+            Node current = unsortedListHead;
+            unsortedListHead = unsortedListHead.next;
+
+            if (current.value < sortedListHead.value) {
+                current.next = sortedListHead;
+                sortedListHead = current;
+            } else {
+                Node searchPointer = sortedListHead;
+                while (searchPointer.next != null && current.value > searchPointer.next.value) {
+                    searchPointer = searchPointer.next;
+                }
+                current.next = searchPointer.next;
+                searchPointer.next = current;
+            }
+        }
+        head = sortedListHead;
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        tail = temp;
     }
 
 }

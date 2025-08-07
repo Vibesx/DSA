@@ -5,12 +5,18 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {5, 2, 3, 1, 7, 6, 0, 9, 4, 8};
+        LinkedList linkedList = new LinkedList(5);
+        linkedList.append(2);
+        linkedList.append(7);
+        linkedList.append(1);
+        linkedList.append(4);
+        linkedList.append(3);
+        linkedList.append(6);
         System.out.println("BEFORE SORT");
-        System.out.println(Arrays.toString(array));
-        Sorts.selectionSort(array);
+        linkedList.printList();
+        linkedList.insertionSort();
         System.out.println("AFTER SORT");
-        System.out.println(Arrays.toString(array));
+        linkedList.printList();
     }
 
 
