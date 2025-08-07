@@ -5,18 +5,14 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList linkedList = new LinkedList(5);
-        linkedList.append(2);
-        linkedList.append(7);
-        linkedList.append(1);
-        linkedList.append(4);
-        linkedList.append(3);
-        linkedList.append(6);
-        System.out.println("BEFORE SORT");
-        linkedList.printList();
-        linkedList.insertionSort();
-        System.out.println("AFTER SORT");
-        linkedList.printList();
+        int[] array1 = {1, 3, 7, 8};
+        int[] array2 = {2, 4, 5, 6};
+
+        System.out.println(Arrays.toString(Sorts.merge(array1, array2)));
+
+        int[] array = {6, 1, 3, 2, 8, 5, 4, 7};
+
+        System.out.println(Arrays.toString(Sorts.mergeSort(array)));
     }
 
 
