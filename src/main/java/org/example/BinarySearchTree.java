@@ -145,4 +145,17 @@ public class BinarySearchTree {
 
         return currentNode;
     }
+
+    public void invert() {
+        root = invertTree(root);
+    }
+
+    private Node invertTree(Node node) {
+        if(node == null) return null;
+        Node temp = invertTree(node.left);
+        node.left = invertTree(node.right);
+        node.right = temp;
+
+        return node;
+    }
 }
