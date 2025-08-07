@@ -5,18 +5,10 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        BinarySearchTree myBST = new BinarySearchTree();
-
-        myBST.insert(47);
-        myBST.insert(21);
-        myBST.insert(76);
-        myBST.insert(18);
-        myBST.insert(27);
-        myBST.insert(52);
-        myBST.insert(82);
-
-        System.out.println(myBST.DFSInOrder());
-        System.out.println(myBST.kthSmallest(2));
+        int[] array = {5, 2, 3, 1, 7, 6, 0, 9};
+        System.out.println(Arrays.toString(array));
+        Sorts.bubbleSort(array);
+        System.out.println(Arrays.toString(array));
     }
 
 
@@ -32,6 +24,7 @@ public class Main {
         return result;
     }
 
+    //TODO recap in the future
     public static int findKthSmallest(int[] nums, int k) {
         Heap heap = new Heap();
         for (int i : nums) {
