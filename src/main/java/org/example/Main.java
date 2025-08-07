@@ -5,15 +5,17 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree();
-        int size = 9;
-        int[] input = new int[size];
-        for (int i = 0; i < size; i++) {
-            input[i] = i + 1;
-        }
-        bst.sortedArrayToBST(input);
+        BinarySearchTree myBST = new BinarySearchTree();
 
-        System.out.println(bst);
+        myBST.insert(47);
+        myBST.insert(21);
+        myBST.insert(76);
+        myBST.insert(18);
+        myBST.insert(27);
+        myBST.insert(52);
+        myBST.insert(82);
+
+        System.out.println(myBST.BFS());
     }
 
 
