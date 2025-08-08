@@ -475,5 +475,29 @@ public class LinkedList {
         tail = temp;
     }
 
+    //TODO recap
+    public void merge(LinkedList linkedList) {
+        Node dummy = new Node(0);
+        Node current = dummy;
+        Node otherHead = linkedList.head;
+        while(head != null && otherHead != null) {
+            if(head.value < otherHead.value) {
+                current.next = head;
+                head = head.next;
+            } else {
+                current.next = otherHead;
+                otherHead = otherHead.next;
+            }
+            current = current.next;
+        }
+        if(head != null) {
+            current.next = head;
+        } else {
+            current.next = otherHead;
+            tail = linkedList.getTail();
+        }
+        head = dummy.next;
+        length += linkedList.getLength();
+    }
 }
 

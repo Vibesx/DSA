@@ -10,11 +10,18 @@ public class Main {
 
         System.out.println(Arrays.toString(Sorts.merge(array1, array2)));
 
-        int[] array = {6, 1, 3, 2, 8, 5, 4, 7};
-
-        System.out.println(Arrays.toString(Sorts.mergeSort(array)));
+//        int[] array = {6, 1, 3, 2, 8, 5, 4, 7};
+        int[] array = {4, 6, 1, 7, 3, 2, 5};
+        Sorts.quickSort(array);
+        System.out.println(Arrays.toString(array));
     }
 
+//    private static int fib(int n) {
+//        if(n == 0 || n == 1) {
+//            return n;
+//        }
+//        return fib(n - 1) + fib(n - 2);
+//    }
 
     // HEAPS
 
