@@ -5,23 +5,9 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array1 = {1, 3, 7, 8};
-        int[] array2 = {2, 4, 5, 6};
-
-        System.out.println(Arrays.toString(Sorts.merge(array1, array2)));
-
-//        int[] array = {6, 1, 3, 2, 8, 5, 4, 7};
-        int[] array = {4, 6, 1, 7, 3, 2, 5};
-        Sorts.quickSort(array);
-        System.out.println(Arrays.toString(array));
+        System.out.println(Fib.fib(7));
+        System.out.println(Fib.getCounter());
     }
-
-//    private static int fib(int n) {
-//        if(n == 0 || n == 1) {
-//            return n;
-//        }
-//        return fib(n - 1) + fib(n - 2);
-//    }
 
     // HEAPS
 
